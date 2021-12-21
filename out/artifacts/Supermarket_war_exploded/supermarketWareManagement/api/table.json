@@ -1,0 +1,56 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "id": 1,
+      "username": "嘻嘻嘻",
+      "sex": "女",
+      "city": "张家界",
+      "sign": "我有钱",
+      "experience": 255,
+      "logins": 24,
+      "wealth": 828307011,
+      "classify": "作家",
+      "score": 66
+    },
+    {
+      "id": 2,
+      "username": "汪俊豪",
+      "sex": "男",
+      "city": "衡阳",
+      "sign": "靓仔2019401331",
+      "experience": 8848,
+      "logins": 58,
+      "wealth": 9999999999,
+      "classify": "词人",
+      "score": 100
+    },
+    {
+      "id": 10006,
+      "username": "user-6",
+      "sex": "女",
+      "city": "城市-6",
+      "sign": "签名-6",
+      "experience": 982,
+      "logins": 37,
+      "wealth": 57768166,
+      "classify": "作家",
+      "score": 34
+    },
+    {
+      "id": 10007,
+      "username": "7",
+      "sex": "男",
+      "city": "城市-7",
+      "sign": "签名-7",
+      "experience": 727,
+      "logins": 150,
+      "wealth": 82030578,
+      "classify": "作家",
+      "score": 28
+    }
+
+  ]
+}
