@@ -13,7 +13,7 @@ import static com.arcsoft.face.toolkit.ImageFactory.getRGBData;
 
 
 public class Ren extends Exception{
-    public static void renlian(String s,String s2) {
+    public static double renlian(String s,String s2) {
         //从官网获取
         String appId = "C5WqnS2ZsCnkDv9v3BbFKopEAEzdCzzCibDYD2wdEs9L";
         String sdkKey = "CxcceW4neHdZUDybMsjwowvujWbbzyLzQSZSfXQey1wV";
@@ -64,23 +64,23 @@ public class Ren extends Exception{
         ImageInfo imageInfo = getRGBData(new File(s));
         List<FaceInfo> faceInfoList = new ArrayList<FaceInfo>();
         errorCode = faceEngine.detectFaces(imageInfo.getImageData(), imageInfo.getWidth(), imageInfo.getHeight(), imageInfo.getImageFormat(), faceInfoList);
-        System.out.println(faceInfoList);
+//        System.out.println(faceInfoList);
 
         //特征提取
         FaceFeature faceFeature = new FaceFeature();
         errorCode = faceEngine.extractFaceFeature(imageInfo.getImageData(), imageInfo.getWidth(), imageInfo.getHeight(), imageInfo.getImageFormat(), faceInfoList.get(0), faceFeature);
-        System.out.println("特征值大小：" + faceFeature.getFeatureData().length);
+//        System.out.println("特征值大小：" + faceFeature.getFeatureData().length);
 
         //人脸检测2
         ImageInfo imageInfo2 = getRGBData(new File(s2));
         List<FaceInfo> faceInfoList2 = new ArrayList<FaceInfo>();
         errorCode = faceEngine.detectFaces(imageInfo2.getImageData(), imageInfo2.getWidth(), imageInfo2.getHeight(),imageInfo.getImageFormat(), faceInfoList2);
-        System.out.println(faceInfoList);
+//        System.out.println(faceInfoList);
 
         //特征提取2
         FaceFeature faceFeature2 = new FaceFeature();
         errorCode = faceEngine.extractFaceFeature(imageInfo2.getImageData(), imageInfo2.getWidth(), imageInfo2.getHeight(), imageInfo.getImageFormat(), faceInfoList2.get(0), faceFeature2);
-        System.out.println("特征值大小：" + faceFeature.getFeatureData().length);
+//        System.out.println("特征值大小：" + faceFeature.getFeatureData().length);
 
         //特征比对
         FaceFeature targetFaceFeature = new FaceFeature();
@@ -107,22 +107,22 @@ public class Ren extends Exception{
         //性别检测
         List<GenderInfo> genderInfoList = new ArrayList<GenderInfo>();
         errorCode = faceEngine.getGender(genderInfoList);
-        System.out.println("性别：" + genderInfoList.get(0).getGender());
+//        System.out.println("性别：" + genderInfoList.get(0).getGender());
 
         //年龄检测
         List<AgeInfo> ageInfoList = new ArrayList<AgeInfo>();
         errorCode = faceEngine.getAge(ageInfoList);
-        System.out.println("年龄：" + ageInfoList.get(0).getAge());
+//        System.out.println("年龄：" + ageInfoList.get(0).getAge());
 
         //3D信息检测
         List<Face3DAngle> face3DAngleList = new ArrayList<Face3DAngle>();
         errorCode = faceEngine.getFace3DAngle(face3DAngleList);
-        System.out.println("3D角度：" + face3DAngleList.get(0).getPitch() + "," + face3DAngleList.get(0).getRoll() + "," + face3DAngleList.get(0).getYaw());
+//        System.out.println("3D角度：" + face3DAngleList.get(0).getPitch() + "," + face3DAngleList.get(0).getRoll() + "," + face3DAngleList.get(0).getYaw());
 
         //活体检测
         List<LivenessInfo> livenessInfoList = new ArrayList<LivenessInfo>();
         errorCode = faceEngine.getLiveness(livenessInfoList);
-        System.out.println("活体：" + livenessInfoList.get(0).getLiveness());
+//        System.out.println("活体：" + livenessInfoList.get(0).getLiveness());
 
 
         //IR属性处理
@@ -152,7 +152,7 @@ public class Ren extends Exception{
         errorCode = faceEngine.process(imageInfoEx, faceInfoList1, functionConfiguration);
         List<AgeInfo> ageInfoList1 = new ArrayList<>();
         int age = faceEngine.getAge(ageInfoList1);
-        System.out.println("年龄：" + ageInfoList1.get(0).getAge());
+//        System.out.println("年龄：" + ageInfoList1.get(0).getAge());
 
         FaceFeature feature = new FaceFeature();
         errorCode = faceEngine.extractFaceFeature(imageInfoEx, faceInfoList1.get(0), feature);
@@ -160,6 +160,6 @@ public class Ren extends Exception{
 
         //引擎卸载
         errorCode = faceEngine.unInit();
-
+        return faceSimilar.getScore();
     }
 }

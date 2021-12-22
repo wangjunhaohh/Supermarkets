@@ -33,13 +33,19 @@ public class PhotoServlet extends HttpServlet {
         System.out.println(2);
         Ren r=new Ren();
         try {
-            r.renlian("D:\\javaweb\\Supermarkets\\web\\supermarketWareManagement\\images\\1639983419673.png",filepath+s);
-            response.getWriter().print("1");
-            System.out.println(3);
+            double d=r.renlian("D:\\javaweb\\Supermarkets\\web\\supermarketWareManagement\\images\\1639983419673.png",filepath+s);
+            System.out.println(d);
+            if(d>=0.5){
+                System.out.println(d);
+                response.getWriter().print("1");
+                System.out.println(3);
+            }else {
+                response.getWriter().print("0");
+            }
+
         } catch (Exception e) {
-            e.printStackTrace();
-        }finally {
             response.getWriter().print("0");
+            e.printStackTrace();
         }
     }
 }
